@@ -8,6 +8,16 @@ get '/hello' do
   "Hello!"
 end
 
-get '/howdy/class' do
-  "Howdy, class!"
+get '/hello/:name' do
+  "Hello, #{params['name'].capitalize}"
 end
+
+get '/hello/:name/:greeting' do
+  "#{params['greeting']} #{params['name']}"
+end
+
+get '/letter-count/:word' do
+  "#{params['word']} has #{params['word'].length} letters"
+end
+
+
