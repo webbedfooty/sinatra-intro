@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sinatra</title>
+</head>
+<body>
+  <h1>Hello!</h1>
+  <p>I hope you're having a lovely day!</p>
+
+
+  <% (1..15).each do |n| %>
+    <% if n.odd? %>
+      <p><%= n %> is Odd</p>
+    <% else %>
+      <p><%= n %> is Even</p>
+    <% end %>
+  <% end %>
+
+</body>
+</html>
+
