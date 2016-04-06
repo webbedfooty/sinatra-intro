@@ -53,8 +53,44 @@ end
 # localhost:4567/even-or-odd/2
 # I should see:
 # 2 is even.
+get "/even-or-odd/:number" do
+  @number = params['number']
+  @which = ""
+  if params['number'].to_i.even?
+    @which = " is even."
+  else
+    @which = " is odd."
+  end
+  erb :even_or_odd_2
+end
 
-
+# works for both
 # localhost:4567/even-or-odd/73
 # I should see:
 # 73 is odd.
+
+#################################################
+# 3. Triangles
+#(Hint: a triangle is a good triangle if each side is shorter than the sum
+#       of the lengths of the other two sides, and not good otherwise)
+# I want to know if a triangle is good. When I visit
+# localhost:4567/triangle/3/4/5
+# I should see:
+# A triangle with lengths of 3, 4, and 5 is good.
+#
+# localhost:4567/triangle/17/2/4
+# I should see:
+# A triangle with lengths of 17, 2, and 4 is not good.
+
+get "/triangle/:a/:b/:c" do
+  @a = params['a'].to_i
+  @b = params['b'].to_i
+  @c = params['c'].to_i
+  @which = ""
+  if (@a + @b > @c) && (@a + @c > @b) && (@b + @c > @a)
+    @which = " good."
+  else
+    @which = " not good."
+  end
+  erb :triangle
+end
